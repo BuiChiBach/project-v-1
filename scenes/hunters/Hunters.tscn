@@ -5,33 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://brght2mkg4rs1" path="res://assets/sprites/hunters/male_body_base.png" id="5_2houg"]
 [ext_resource type="Texture2D" uid="uid://bwy5fljkotnng" path="res://assets/sprites/hunters/male_head_base.png" id="6_bjgsj"]
 
-[sub_resource type="Animation" id="Animation_652te"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="Animation" id="Animation_6gvqe"]
 resource_name = "idle_down"
 loop_mode = 1
@@ -262,7 +235,6 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5y4fp"]
 _data = {
-&"RESET": SubResource("Animation_652te"),
 &"idle_down": SubResource("Animation_6gvqe"),
 &"idle_left": SubResource("Animation_trqko"),
 &"idle_right": SubResource("Animation_2houg"),
@@ -283,11 +255,13 @@ script = ExtResource("2_stjub")
 texture = ExtResource("5_2houg")
 hframes = 13
 vframes = 21
+frame = 144
 
 [node name="Head" type="Sprite2D" parent="Visual" unique_id=39142781]
 texture = ExtResource("6_bjgsj")
 hframes = 13
 vframes = 21
+frame = 144
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" unique_id=122931116]
 libraries/ = SubResource("AnimationLibrary_5y4fp")

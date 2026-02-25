@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://cm8g26bdawjqm"]
 
 [ext_resource type="Script" uid="uid://mtfbl7hfrogm" path="res://scripts/environment/environment.gd" id="1_hgg46"]
+[ext_resource type="PackedScene" uid="uid://bjapqbjgc5vcj" path="res://scenes/hunters/Hunters.tscn" id="2_exydu"]
 
 [node name="Environment" type="Node2D" unique_id=356346886]
 script = ExtResource("1_hgg46")
 
 [node name="Entities" type="Node2D" parent="." unique_id=1408455535]
+
+[node name="Hunters" parent="." unique_id=309101790 instance=ExtResource("2_exydu")]
+position = Vector2(381, 240)
