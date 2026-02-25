@@ -2,64 +2,50 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 @onready var visual = $Visual
-@onready var animation_player = $Visual/AnimationPlayer
-
+@onready var animation_tree = $Visual/AnimationTree
+var movement_direction = Vector2.ZERO
 var last_direction = Vector2.DOWN
 
-
 func _ready() -> void:
-	# Default to male, can be changed via set_character_type()
-	pass
+	animation_tree.active = true
+
+
+func _input(event: InputEvent) -> void:
+	# Test buttons to switch character types
+	if event is InputEventKey and event.pressed:
+		match event.keycode:
+			KEY_1:
+				set_character_type(visual.CharacterType.MALE)
+				print("Changed to MALE")
+			KEY_2:
+				set_character_type(visual.CharacterType.FEMALE)
+				print("Changed to FEMALE")
+			KEY_3:
+				set_character_type(visual.CharacterType.SKELETON)
+				print("Changed to SKELETON")
+			KEY_4:
+				set_character_type(visual.CharacterType.ZOMBIE)
+				print("Changed to ZOMBIE")
 
 
 func _physics_process(delta: float) -> void:
-	# Get the input direction and handle the movement/deceleration.
-	var direction_x := Input.get_axis("ui_left", "ui_right")
-	var direction_y := Input.get_axis("ui_up", "ui_down")
-	
-	# Handle horizontal movement
-	if direction_x:
-		velocity.x = direction_x * SPEED
-		
-		# Play walk animation based on direction
-		if direction_x > 0:
-			animation_player.play("walk_right")
-			last_direction = Vector2.RIGHT
-		else:
-			animation_player.play("walk_left")
-			last_direction = Vector2.LEFT
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	# Handle vertical movement
-	if direction_y:
-		velocity.y = direction_y * SPEED
-		
-		# Play walk animation based on direction
-		if direction_y > 0:
-			animation_player.play("walk_down")
-			last_direction = Vector2.DOWN
-		else:
-			animation_player.play("walk_up")
-			last_direction = Vector2.UP
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-	
-	# Play idle animation based on last direction (when not moving)
-	if direction_x == 0 and direction_y == 0:
-		if last_direction == Vector2.RIGHT:
-			animation_player.play("idle_right")
-		elif last_direction == Vector2.LEFT:
-			animation_player.play("idle_left")
-		elif last_direction == Vector2.UP:
-			animation_player.play("idle_up")
-		else:
-			animation_player.play("idle_down")
+	movement_direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
+	if movement_direction.length() > 0:
+		movement_direction = movement_direction.normalized()
+		last_direction = movement_direction
 
+	velocity = movement_direction * SPEED
 	move_and_slide()
+	
+	# Prioritize y-direction over x-direction for animation
+	var animation_direction = last_direction
+	if last_direction.y != 0:
+		animation_direction = Vector2(0, last_direction.y)
+	
+	animation_tree["parameters/Idle/blend_position"] = animation_direction
+	animation_tree["parameters/Walk/blend_position"] = animation_direction
 
 
 # Set the character type (MALE, FEMALE, or ENEMY)

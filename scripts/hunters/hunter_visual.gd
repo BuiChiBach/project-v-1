@@ -14,12 +14,12 @@ var texture_paths = {
 		"head": "res://assets/sprites/hunters/female_head_base.png"
 	},
 	CharacterType.SKELETON: {
-		"body": "res://assets/sprites/hunters/skeleton_body_base.png",
-		"head": "res://assets/sprites/hunters/skeleton_head_base.png"
+		"body": "res://assets/sprites/enemies/skeleton_body_base.png",
+		"head": "res://assets/sprites/enemies/skeleton_head_base.png"
 	},
 	CharacterType.ZOMBIE: {
-		"body": "res://assets/sprites/hunters/zombie_body_base.png",
-		"head": "res://assets/sprites/hunters/zombie_head_base.png"
+		"body": "res://assets/sprites/enemies/zombie_body_base.png",
+		"head": "res://assets/sprites/enemies/zombie_head_base.png"
 	}
 }
 
