@@ -2,8 +2,44 @@
 
 [ext_resource type="Script" uid="uid://dneadke4kbr52" path="res://scripts/hunters/hunters.gd" id="1_u46lg"]
 [ext_resource type="Script" uid="uid://dxyomct08nbce" path="res://scripts/hunters/hunter_visual.gd" id="2_stjub"]
+[ext_resource type="Shader" uid="uid://d2fy726hfgu6n" path="res://shader/swap_palette.gdshader" id="4_trqko"]
 [ext_resource type="Texture2D" uid="uid://brght2mkg4rs1" path="res://assets/sprites/hunters/male_body_base.png" id="5_2houg"]
 [ext_resource type="Texture2D" uid="uid://bwy5fljkotnng" path="res://assets/sprites/hunters/male_head_base.png" id="6_bjgsj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_86km1"]
+shader = ExtResource("4_trqko")
+shader_parameter/colors_count = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2houg"]
+shader = ExtResource("4_trqko")
+shader_parameter/colors_count = 0
+
+[sub_resource type="Animation" id="Animation_652te"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
 
 [sub_resource type="Animation" id="Animation_6gvqe"]
 resource_name = "idle_down"
@@ -115,6 +151,122 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_6olut"]
+resource_name = "slash_down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [182, 183, 184, 185, 186, 187]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [182, 183, 184, 185, 186, 187]
+}
+
+[sub_resource type="Animation" id="Animation_71fbr"]
+resource_name = "slash_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [169, 170, 171, 172, 173, 174]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [169, 170, 171, 172, 173, 174]
+}
+
+[sub_resource type="Animation" id="Animation_ff8qo"]
+resource_name = "slash_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [195, 196, 197, 198, 199, 200]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [195, 196, 197, 198, 199, 200]
+}
+
+[sub_resource type="Animation" id="Animation_pg3sj"]
+resource_name = "slash_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [156, 157, 158, 159, 160, 161]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [156, 157, 158, 159, 160, 161]
 }
 
 [sub_resource type="Animation" id="Animation_carju"]
@@ -235,10 +387,15 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5y4fp"]
 _data = {
+&"RESET": SubResource("Animation_652te"),
 &"idle_down": SubResource("Animation_6gvqe"),
 &"idle_left": SubResource("Animation_trqko"),
 &"idle_right": SubResource("Animation_2houg"),
 &"idle_up": SubResource("Animation_86km1"),
+&"slash_down": SubResource("Animation_6olut"),
+&"slash_left": SubResource("Animation_71fbr"),
+&"slash_right": SubResource("Animation_ff8qo"),
+&"slash_up": SubResource("Animation_pg3sj"),
 &"walk_down": SubResource("Animation_carju"),
 &"walk_left": SubResource("Animation_bjgsj"),
 &"walk_right": SubResource("Animation_5y4fp"),
@@ -316,16 +473,18 @@ script = ExtResource("1_u46lg")
 script = ExtResource("2_stjub")
 
 [node name="Body" type="Sprite2D" parent="Visual" unique_id=1564838644]
+material = SubResource("ShaderMaterial_86km1")
 texture = ExtResource("5_2houg")
 hframes = 13
 vframes = 21
-frame = 13
+frame = 14
 
 [node name="Head" type="Sprite2D" parent="Visual" unique_id=39142781]
+material = SubResource("ShaderMaterial_2houg")
 texture = ExtResource("6_bjgsj")
 hframes = 13
 vframes = 21
-frame = 13
+frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" unique_id=122931116]
 libraries/ = SubResource("AnimationLibrary_5y4fp")

@@ -1,0 +1,76 @@
+[gd_resource type="VisualShader" format=3 uid="uid://0qymvf1mnxuw"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_f40wr"]
+input_name = "texture"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_neg0h"]
+source = 5
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_41q1h"]
+size = Vector2(700, 640)
+expression = "vec2 new_uv = vec2(0.0, 0.5);
+bool found = false;
+
+if (color.a > 0.0) {
+    for (int i = 0; i < colors_count; i++) {
+        float u = (float(i) + 0.5) / float(colors_count);
+        vec2 uv = vec2(u, 0.5);
+        vec4 original_palette_color = texture(original_palette, uv);
+        float dist = distance(color.rgb, original_palette_color.rgb);
+        if (dist < 0.01) {
+            new_uv = uv;
+            found = true;
+            break;
+        }
+    }
+}
+
+new_color = found ? texture(new_palette, new_uv) : color;"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_qfwrn"]
+parameter_name = "orginal_platte"
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_868d2"]
+parameter_name = "new_platte"
+
+[sub_resource type="VisualShaderNodeIntParameter" id="VisualShaderNodeIntParameter_ax55p"]
+parameter_name = "colors_count"
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(1040, 120)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_f40wr")
+nodes/fragment/2/position = Vector2(-1020, -360)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_neg0h")
+nodes/fragment/3/position = Vector2(-560, -340)
+nodes/fragment/4/node = SubResource("VisualShaderNodeExpression_41q1h")
+nodes/fragment/4/position = Vector2(-40, 160)
+nodes/fragment/4/size = Vector2(700, 640)
+nodes/fragment/4/input_ports = "0,5,color;1,8,original_palette;2,8,new_palette;3,1,colors_count;"
+nodes/fragment/4/output_ports = "0,5,new_color;"
+nodes/fragment/4/expression = "vec2 new_uv = vec2(0.0, 0.5);
+bool found = false;
+
+if (color.a > 0.0) {
+    for (int i = 0; i < colors_count; i++) {
+        float u = (float(i) + 0.5) / float(colors_count);
+        vec2 uv = vec2(u, 0.5);
+        vec4 original_palette_color = texture(original_palette, uv);
+        float dist = distance(color.rgb, original_palette_color.rgb);
+        if (dist < 0.01) {
+            new_uv = uv;
+            found = true;
+            break;
+        }
+    }
+}
+
+new_color = found ? texture(new_palette, new_uv) : color;"
+nodes/fragment/5/node = SubResource("VisualShaderNodeTexture2DParameter_qfwrn")
+nodes/fragment/5/position = Vector2(-1020, 20)
+nodes/fragment/6/node = SubResource("VisualShaderNodeTexture2DParameter_868d2")
+nodes/fragment/6/position = Vector2(-1040, 380)
+nodes/fragment/7/node = SubResource("VisualShaderNodeIntParameter_ax55p")
+nodes/fragment/7/position = Vector2(-960, 760)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 4, 0, 5, 0, 4, 1, 6, 0, 4, 2, 7, 0, 4, 3, 4, 0, 0, 0)

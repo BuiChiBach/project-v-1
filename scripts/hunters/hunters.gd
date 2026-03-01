@@ -6,7 +6,6 @@ const SPEED = 300.0
 @onready var visual = $Visual
 @onready var animation_tree = $Visual/AnimationTree
 var movement_direction = Vector2.ZERO
-#var last_direction = Vector2.DOWN
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -34,18 +33,9 @@ func _physics_process(delta: float) -> void:
 	movement_direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
 	if movement_direction.length() > 0:
 		movement_direction = movement_direction.normalized()
-		#last_direction = movement_direction
 
 	velocity = movement_direction * SPEED
 	move_and_slide()
-	
-	# Prioritize y-direction over x-direction for animation
-	#var animation_direction = last_direction
-	#if last_direction.y != 0:
-		#animation_direction = Vector2(0, last_direction.y)
-	
-	#animation_tree["parameters/Idle/blend_position"] = animation_direction
-	#animation_tree["parameters/Walk/blend_position"] = animation_direction
 	
 	if movement_direction != Vector2.ZERO:
 		animation_tree["parameters/Idle/blend_position"] = movement_direction
