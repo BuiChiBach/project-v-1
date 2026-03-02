@@ -2,17 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dneadke4kbr52" path="res://scripts/hunters/hunters.gd" id="1_u46lg"]
 [ext_resource type="Script" uid="uid://dxyomct08nbce" path="res://scripts/hunters/hunter_visual.gd" id="2_stjub"]
-[ext_resource type="Shader" uid="uid://d2fy726hfgu6n" path="res://shader/swap_palette.gdshader" id="4_trqko"]
 [ext_resource type="Texture2D" uid="uid://brght2mkg4rs1" path="res://assets/sprites/hunters/male_body_base.png" id="5_2houg"]
 [ext_resource type="Texture2D" uid="uid://bwy5fljkotnng" path="res://assets/sprites/hunters/male_head_base.png" id="6_bjgsj"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_86km1"]
-shader = ExtResource("4_trqko")
-shader_parameter/colors_count = 0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2houg"]
-shader = ExtResource("4_trqko")
-shader_parameter/colors_count = 0
 
 [sub_resource type="Animation" id="Animation_652te"]
 length = 0.001
@@ -54,7 +45,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [26, 27]
+"values": [312, 313]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -66,7 +57,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [26, 27]
+"values": [312, 313]
 }
 
 [sub_resource type="Animation" id="Animation_trqko"]
@@ -82,7 +73,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [13, 14]
+"values": [299, 300]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -94,7 +85,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [13, 14]
+"values": [299, 300]
 }
 
 [sub_resource type="Animation" id="Animation_2houg"]
@@ -110,7 +101,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [39, 40]
+"values": [325, 326]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -122,7 +113,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [39, 40]
+"values": [325, 326]
 }
 
 [sub_resource type="Animation" id="Animation_86km1"]
@@ -138,7 +129,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [286, 287]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -150,7 +141,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [286, 287]
 }
 
 [sub_resource type="Animation" id="Animation_6olut"]
@@ -473,17 +464,15 @@ script = ExtResource("1_u46lg")
 script = ExtResource("2_stjub")
 
 [node name="Body" type="Sprite2D" parent="Visual" unique_id=1564838644]
-material = SubResource("ShaderMaterial_86km1")
 texture = ExtResource("5_2houg")
 hframes = 13
-vframes = 21
+vframes = 54
 frame = 14
 
 [node name="Head" type="Sprite2D" parent="Visual" unique_id=39142781]
-material = SubResource("ShaderMaterial_2houg")
 texture = ExtResource("6_bjgsj")
 hframes = 13
-vframes = 21
+vframes = 54
 frame = 14
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" unique_id=122931116]

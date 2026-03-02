@@ -23,6 +23,8 @@ var texture_paths = {
 	}
 }
 
+var swap_palette_shader_path = "res://shader/swap_palette.gdshader";
+
 @onready var body_sprite = $Body
 @onready var head_sprite = $Head
 
@@ -47,3 +49,24 @@ func set_character_type(char_type: CharacterType) -> void:
 func set_character_textures(body_texture_path: String, head_texture_path: String) -> void:
 	body_sprite.texture = load(body_texture_path)
 	head_sprite.texture = load(head_texture_path)
+
+
+# Swap body palette using shader
+func swap_head_body_palette(original_palette: String, new_palette: String, colors_count: int) -> void:
+	var original_tex = load(original_palette)
+	var new_tex = load(new_palette)
+	var shader = load(swap_palette_shader_path)
+	
+	if original_tex == null or new_tex == null or shader == null:
+		print("ERROR: Failed to load palette textures or shader")
+		return
+	
+	var material = ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("original_palette", original_tex)
+	material.set_shader_parameter("new_palette", new_tex)
+	material.set_shader_parameter("colors_count", colors_count)
+	
+	body_sprite.material = material
+	head_sprite.material = material
+	print("Swapped hea/body palette: %s → %s (colors: %d)" % [original_palette, new_palette, colors_count])

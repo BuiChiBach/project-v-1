@@ -27,6 +27,14 @@ func _input(event: InputEvent) -> void:
 			KEY_4:
 				set_character_type(visual.CharacterType.ZOMBIE)
 				print("Changed to ZOMBIE")
+			KEY_5:
+				# Swap to amber palette
+				visual.swap_head_body_palette("res://assets/palette/body/light.png", "res://assets/palette/body/amber.png", 6)
+			KEY_6:
+				# Swap back to light palette (remove shader)
+				visual.body_sprite.material = null
+				visual.head_sprite.material = null
+				print("Reset body to original palette")
 
 
 func _physics_process(delta: float) -> void:
