@@ -146,7 +146,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_6olut"]
 resource_name = "slash_down"
-length = 0.8
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -175,7 +175,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_71fbr"]
 resource_name = "slash_left"
-length = 0.8
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -233,7 +233,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_pg3sj"]
 resource_name = "slash_up"
-length = 0.8
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -320,7 +320,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_5y4fp"]
 resource_name = "walk_right"
-length = 0.8
+length = 0.9
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -484,3 +484,5 @@ advance_expression_base_node = NodePath("../..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="WeaponHolder" type="Node2D" parent="Visual" unique_id=720231598]
