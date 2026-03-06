@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="WeaponData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/weapon/weapon_data.gd" id="1_wpdat"]
+[ext_resource type="Texture2D" uid="uid://dfffjvrjqkg3i" path="res://assets/sprites/weapon/long_sword/slash_oversize.png" id="2_lgswd"]
+
+[resource]
+script = ExtResource("1_wpdat")
+weapon_name = "Long Sword"
+weapon_type = "melee"
+sprite_texture = ExtResource("2_lgswd")
+hframes = 6
+vframes = 4
+attack_animations = {
+"down": "slash_oversize_down",
+"left": "slash_oversize_left",
+"right": "slash_oversize_right",
+"up": "slash_oversize_up"
+}
+body_attack_anim = "slash"
+attack_duration = 0.5
